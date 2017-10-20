@@ -11,7 +11,7 @@ namespace HomeExercises
 		[Category("ToRefactor")]
 		public void CheckCurrentTsar()
 		{
-			var actualTsar = FakeTsarRegistry.GetCurrentTsar();
+			var actualTsar = TsarRegistry.GetCurrentTsar();
 
 			var expectedTsar = new Person("Ivan IV The Terrible", 54, 170, 70,
 				new Person("Vasili III of Russia", 28, 170, 60, null));
@@ -40,7 +40,6 @@ namespace HomeExercises
             Не проверяется вес родителя.
             Не проверяет тип возвращаемый регистром.
 
-
           */
 
         private Person currentTsar;
@@ -56,10 +55,6 @@ namespace HomeExercises
 	        currentTsar.Should().NotBeNull();
 
 	    [Test]
-	    public void GetCurrentTsar_CheckType() =>
-	        currentTsar.Should().BeOfType(typeof(Person));
-
-        [Test]
         public void GetCurrentTsar_CheckName() =>
             currentTsar.Name.Should().Be("Ivan IV The Terrible");
 
@@ -78,10 +73,6 @@ namespace HomeExercises
 	    [Test]
 	    public void GetCurrentTsar_Parent_ShouldNotBeNull() =>
 	        currentTsar.Parent.Should().NotBeNull();
-
-	    [Test]
-	    public void GetCurrentTsar_Parent_CheckType() =>
-	        currentTsar.Parent.Should().BeOfType(typeof(Person));
 
         [Test]
 	    public void GetCurrentTsar_Parent_CheckName() =>
@@ -171,33 +162,4 @@ namespace HomeExercises
 		}
 	}
 
-    public class FakeTsarRegistry
-    {
-        public static FakePerson GetCurrentTsar()
-        {
-            return new FakePerson(
-                "Ivan IV The Terrible", 54, 170, 70,
-                new FakePerson("Vasili III of Russia", 28, 170, 60, null));
-        }
-    }
-
-    public class FakePerson
-    {
-        public static int IdCounter = 0;
-        public int Age, Height, Weight;
-        public string Name;
-        public FakePerson Parent;
-        public int Id;
-        public bool ItIsFake = true;
-
-        public FakePerson(string name, int age, int height, int weight, FakePerson parent)
-        {
-            Id = IdCounter++;
-            Name = name;
-            Age = age;
-            Height = height;
-            Weight = weight;
-            Parent = parent;
-        }
-    }
 }
