@@ -40,6 +40,7 @@ namespace HomeExercises
             Не проверяется вес родителя.
             Не проверяет тип возвращаемый регистром.
 
+
           */
 
         private Person currentTsar;
