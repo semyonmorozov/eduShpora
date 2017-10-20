@@ -1,0 +1,31 @@
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\ObjectComparison.dll
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\ObjectComparison.pdb
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\FluentAssertions.Core.dll
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\FluentAssertions.dll
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\JetBrains.Annotations.dll
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\nunit.framework.dll
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\FluentAssertions.pdb
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\FluentAssertions.xml
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\FluentAssertions.Core.pdb
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\FluentAssertions.Core.xml
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\JetBrains.Annotations.xml
+C:\Users\Semyon\testing\HomeExercises\bin\Debug\nunit.framework.xml
+C:\Users\Semyon\testing\HomeExercises\obj\Debug\HomeExercises.csprojResolveAssemblyReference.cache
+C:\Users\Semyon\testing\HomeExercises\obj\Debug\ObjectComparison.dll
+C:\Users\Semyon\testing\HomeExercises\obj\Debug\ObjectComparison.pdb
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\ObjectComparison.dll
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\ObjectComparison.pdb
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\FluentAssertions.Core.dll
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\FluentAssertions.dll
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\JetBrains.Annotations.dll
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\nunit.framework.dll
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\FluentAssertions.pdb
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\FluentAssertions.xml
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\FluentAssertions.Core.pdb
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\FluentAssertions.Core.xml
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\JetBrains.Annotations.xml
+D:\Google Drive\jКонтур\testing\HomeExercises\bin\Debug\nunit.framework.xml
+D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\HomeExercises.csprojResolveAssemblyReference.cache
+D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\HomeExercises.csproj.CoreCompileInputs.cache
+D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\ObjectComparison.dll
+D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\ObjectComparison.pdb
