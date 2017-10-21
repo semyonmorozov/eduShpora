@@ -29,3 +29,18 @@ D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\HomeExercises.cspr
 D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\HomeExercises.csproj.CoreCompileInputs.cache
 D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\ObjectComparison.dll
 D:\Google Drive\jКонтур\testing\HomeExercises\obj\Debug\ObjectComparison.pdb
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\ObjectComparison.dll
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\ObjectComparison.pdb
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\FluentAssertions.Core.dll
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\FluentAssertions.dll
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\JetBrains.Annotations.dll
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\nunit.framework.dll
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\FluentAssertions.pdb
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\FluentAssertions.xml
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\FluentAssertions.Core.pdb
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\FluentAssertions.Core.xml
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\JetBrains.Annotations.xml
+C:\Users\Semyon\eduShpora\testing\HomeExercises\bin\Debug\nunit.framework.xml
+C:\Users\Semyon\eduShpora\testing\HomeExercises\obj\Debug\HomeExercises.csprojResolveAssemblyReference.cache
+C:\Users\Semyon\eduShpora\testing\HomeExercises\obj\Debug\ObjectComparison.dll
+C:\Users\Semyon\eduShpora\testing\HomeExercises\obj\Debug\ObjectComparison.pdb
