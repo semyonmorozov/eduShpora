@@ -12,7 +12,9 @@ namespace HomeExercises
 	    {
 	        [TestCase(17, 2, true, "0.0",ExpectedResult = true)]
 	        [TestCase(17, 2, true, "0", ExpectedResult = true)]
-	        [TestCase(3, 2, true, "00.00", ExpectedResult = false)]
+	        [TestCase(2, 1, true, "0,0", ExpectedResult = true)]
+	        [TestCase(5, 1, false, "-567,0", ExpectedResult = true)]
+            [TestCase(3, 2, true, "00.00", ExpectedResult = false)]
 	        [TestCase(3, 2, true, "-0.00", ExpectedResult = false)]
 	        [TestCase(3, 2, true, "+0.00", ExpectedResult = false)]
 	        [TestCase(4, 2, true, "+1.23", ExpectedResult = true)]
@@ -26,12 +28,15 @@ namespace HomeExercises
 	        [TestCase(2, 1, true, "0.", ExpectedResult = false)]
 	        [TestCase(2, 1, false, ".0", ExpectedResult = false)]
 	        [TestCase(2, 0, false, "000", ExpectedResult = false)]
+	        [TestCase(2, 0, false, null, ExpectedResult = false)]
+	        [TestCase(2, 0, false, "", ExpectedResult = false)]
             public bool ValidateNumber(int precision, int scale, bool onlyPositive, string value)
 	        {
                 return new NumberValidator(precision,scale,onlyPositive).IsValidNumber(value);
 	        }
 
-	        [TestCase(-1, 2, true)]
+	        [TestCase(0, 0, true)]
+            [TestCase(-1, 2, true)]
             public void ThrowException_OnNegativePrecision(int precision, int scale, bool onlyPositive)
 	        {
 	            Action act = () => new NumberValidator(precision, scale, onlyPositive);
@@ -53,28 +58,6 @@ namespace HomeExercises
 	            Action act = () => new NumberValidator(precision, scale, onlyPositive);
 	            act.ShouldNotThrow<ArgumentException>();
 	        }
-        }
-
-		[Test]
-		public void Test()
-		{
-			//Assert.Throws<ArgumentException>(() => new NumberValidator(-1, 2, true));
-			//Assert.DoesNotThrow(() => new NumberValidator(1, 0, true));
-			//Assert.Throws<ArgumentException>(() => new NumberValidator(-1, 2, false));
-            //Assert.DoesNotThrow(() => new NumberValidator(1, 0, true)); //дублирование
-
-            //Assert.IsTrue(new NumberValidator(17, 2, true).IsValidNumber("0.0"));
-            //Assert.IsTrue(new NumberValidator(17, 2, true).IsValidNumber("0"));
-            //Assert.IsTrue(new NumberValidator(17, 2, true).IsValidNumber("0.0")); //дублирование
-            //Assert.IsFalse(new NumberValidator(3, 2, true).IsValidNumber("00.00"));
-            //Assert.IsFalse(new NumberValidator(3, 2, true).IsValidNumber("-0.00"));
-            //Assert.IsTrue(new NumberValidator(17, 2, true).IsValidNumber("0.0")); //дублирование
-            //Assert.IsFalse(new NumberValidator(3, 2, true).IsValidNumber("+0.00"));
-            //Assert.IsTrue(new NumberValidator(4, 2, true).IsValidNumber("+1.23"));
-            //Assert.IsFalse(new NumberValidator(3, 2, true).IsValidNumber("+1.23"));
-            //Assert.IsFalse(new NumberValidator(17, 2, true).IsValidNumber("0.000"));
-            //Assert.IsFalse(new NumberValidator(3, 2, true).IsValidNumber("-1.23"));
-            //Assert.IsFalse(new NumberValidator(3, 2, true).IsValidNumber("a.sd"));
         }
     }
 
