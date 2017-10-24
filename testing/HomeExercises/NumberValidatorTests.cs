@@ -10,10 +10,6 @@ namespace HomeExercises
 	    [TestFixture]
 	    public class NumberValidator_Should
 	    {
-	        [TestCase(17, 2, true, "0.0",ExpectedResult = true)]
-	        [TestCase(17, 2, true, "0", ExpectedResult = true)]
-	        [TestCase(2, 1, true, "0,0", ExpectedResult = true)]
-	        [TestCase(5, 1, false, "-567,0", ExpectedResult = true)]
             [TestCase(3, 2, true, "00.00", ExpectedResult = false)]
 	        [TestCase(3, 2, true, "-0.00", ExpectedResult = false)]
 	        [TestCase(3, 2, true, "+0.00", ExpectedResult = false)]
@@ -21,12 +17,8 @@ namespace HomeExercises
 	        [TestCase(3, 2, true, "+1.23", ExpectedResult = false)]
 	        [TestCase(17, 2, true, "0.000", ExpectedResult = false)]
 	        [TestCase(3, 2, true, "-1.23", ExpectedResult = false)]
-	        [TestCase(3, 2, true, "a.sd", ExpectedResult = false)]
             [TestCase(4, 2, false, "-2.23", ExpectedResult = true)]
 	        [TestCase(2, 0, false, "-0", ExpectedResult = true)]
-	        [TestCase(10, 6, true, "0.00.0", ExpectedResult = false)]
-	        [TestCase(2, 1, true, "0.", ExpectedResult = false)]
-	        [TestCase(2, 1, false, ".0", ExpectedResult = false)]
 	        [TestCase(2, 0, false, "000", ExpectedResult = false)]
 	        [TestCase(2, 0, false, null, ExpectedResult = false)]
 	        [TestCase(2, 0, false, "", ExpectedResult = false)]
@@ -35,7 +27,20 @@ namespace HomeExercises
                 return new NumberValidator(precision,scale,onlyPositive).IsValidNumber(value);
 	        }
 
-	        [TestCase(0, 0, true)]
+	        [TestCase(3, 2, true, "a.sd", ExpectedResult = false)]
+            [TestCase(17, 2, true, "0", ExpectedResult = true)]
+            [TestCase(17, 2, true, "0.0", ExpectedResult = true)]
+            [TestCase(2, 1, true, "0,0", ExpectedResult = true)]
+	        [TestCase(5, 1, false, "-567,0", ExpectedResult = true)]
+            [TestCase(10, 6, true, "0.00.0", ExpectedResult = false)]
+	        [TestCase(2, 1, true, "0.", ExpectedResult = false)]
+	        [TestCase(2, 1, false, ".0", ExpectedResult = false)]
+            public bool ParseNumber(int precision, int scale, bool onlyPositive, string value)
+	        {
+	            return new NumberValidator(precision, scale, onlyPositive).IsValidNumber(value);
+	        }
+
+            [TestCase(0, 0, true)]
             [TestCase(-1, 2, true)]
             public void ThrowException_OnNegativePrecision(int precision, int scale, bool onlyPositive)
 	        {
@@ -43,7 +48,7 @@ namespace HomeExercises
 	            act.ShouldThrow<ArgumentException>().WithMessage("precision must be a positive number");
 	        }
 
-	        [TestCase(1, 2, true,TestName = "When scale is bigger then precision")]
+	        [TestCase(1, 2, true, TestName = "When scale is bigger then precision")]
 	        [TestCase(2, -1, false, TestName = "When scale is negative")]
 	        public void ThrowException_OnIncorrectScale(int precision, int scale, bool onlyPositive)
 	        {
