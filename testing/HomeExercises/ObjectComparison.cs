@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 
 namespace HomeExercises
@@ -42,8 +40,8 @@ namespace HomeExercises
 	    [Test]
 	    public void GetCurrentTsar_ShouldReturn_CorrectPersone()
 	    {
-	        Person currentTsar = TsarRegistry.GetCurrentTsar();
-            Person expectedTsar = new Person("Ivan IV The Terrible", 54, 170, 70,
+	        var currentTsar = TsarRegistry.GetCurrentTsar();
+            var expectedTsar = new Person("Ivan IV The Terrible", 54, 170, 70,
 	            new Person("Vasili III of Russia", 28, 170, 60, null));
             currentTsar.ShouldBeEquivalentTo(expectedTsar, options =>
                 options.Excluding(o => o.Id).Excluding(o=>o.Parent.Id));
@@ -71,7 +69,7 @@ namespace HomeExercises
 			&& actual.Height == expected.Height
 			&& actual.Weight == expected.Weight
 			&& AreEqual(actual.Parent, expected.Parent);
-		}
+		} 
 
 	    /*
             В случае, если тест завалится, то не будет ясно в чем проблема,
@@ -81,7 +79,9 @@ namespace HomeExercises
             
             В тесте используется метод AreEqual, который содержит в себе достаточно много логики, 
             из-за чего его тоже надо тестить. 
-         */}
+         */
+	    
+	}
 
     public class TsarRegistry
 	{
@@ -90,7 +90,9 @@ namespace HomeExercises
 		    return new Person(
 		        "Ivan IV The Terrible", 54, 170, 70, 
 				new Person("Vasili III of Russia", 28, 170, 60, null));
-		}}
+		}
+	    
+	}
 
 	public class Person
 	{
