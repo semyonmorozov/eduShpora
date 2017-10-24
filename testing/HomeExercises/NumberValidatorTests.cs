@@ -28,14 +28,19 @@ namespace HomeExercises
 	        }
 
 	        [TestCase(3, 2, true, "a.sd", ExpectedResult = false)]
-            [TestCase(17, 2, true, "0", ExpectedResult = true)]
-            [TestCase(17, 2, true, "0.0", ExpectedResult = true)]
-            [TestCase(2, 1, true, "0,0", ExpectedResult = true)]
-	        [TestCase(5, 1, false, "-567,0", ExpectedResult = true)]
             [TestCase(10, 6, true, "0.00.0", ExpectedResult = false)]
 	        [TestCase(2, 1, true, "0.", ExpectedResult = false)]
 	        [TestCase(2, 1, false, ".0", ExpectedResult = false)]
-            public bool ParseNumber(int precision, int scale, bool onlyPositive, string value)
+            public bool ReturnFalse_WhenParsingOfNumberFailed(int precision, int scale, bool onlyPositive, string value)
+	        {
+	            return new NumberValidator(precision, scale, onlyPositive).IsValidNumber(value);
+	        }
+
+	        [TestCase(17, 2, true, "0", ExpectedResult = true)]
+	        [TestCase(17, 2, true, "0.0", ExpectedResult = true)]
+	        [TestCase(2, 1, true, "0,0", ExpectedResult = true)]
+	        [TestCase(5, 1, false, "-567,0", ExpectedResult = true)]
+	        public bool ReturnTrue_WhenParsingOfNumberSucceed(int precision, int scale, bool onlyPositive, string value)
 	        {
 	            return new NumberValidator(precision, scale, onlyPositive).IsValidNumber(value);
 	        }

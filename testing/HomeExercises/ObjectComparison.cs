@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -28,72 +29,25 @@ namespace HomeExercises
             Assert.AreEqual(expectedTsar.Parent.Parent, actualTsar.Parent.Parent);
         }
         /*  Антипаттерн Freeride
+            Много Assert, что противоречит принципу AAA 
          
             В случае, если тест завалится, то не будет ясно в чем проблема,
             результат теста будет выглядеть так:
             Expected: 160
             But was:  170
-            
-            Такой тест не поймает ошибки в конструкторе, 
-            например если перепутать рост с весом.
 
             Не проверяется вес родителя.
-            Не проверяет тип возвращаемый регистром.
-
           */
-
-        private Person currentTsar;
-
-        [SetUp]
-	    public void SetUp()
-        {
-            currentTsar =  TsarRegistry.GetCurrentTsar();
-        }
-
+     
 	    [Test]
-	    public void GetCurrentTsar_PersoneShouldNotBeNull() =>
-	        currentTsar.Should().NotBeNull();
-
-	    [Test]
-        public void GetCurrentTsar_CheckName() =>
-            currentTsar.Name.Should().Be("Ivan IV The Terrible");
-
-	    [Test]
-	    public void GetCurrentTsar_CheckAge() =>
-	        currentTsar.Age.Should().Be(54);
-
-	    [Test]
-	    public void GetCurrentTsar_CheckHeight() =>
-	        currentTsar.Height.Should().Be(170);
-
-	    [Test]
-	    public void GetCurrentTsar_CheckWeight() =>
-	        currentTsar.Weight.Should().Be(70);
-
-	    [Test]
-	    public void GetCurrentTsar_Parent_ShouldNotBeNull() =>
-	        currentTsar.Parent.Should().NotBeNull();
-
-        [Test]
-	    public void GetCurrentTsar_Parent_CheckName() =>
-	        currentTsar.Parent.Name.Should().Be("Vasili III of Russia");
-
-	    [Test]
-	    public void GetCurrentTsar_Parent_CheckAge() =>
-	        currentTsar.Parent.Age.Should().Be(28);
-
-	    [Test]
-	    public void GetCurrentTsar_Parent_CheckHeight() =>
-	        currentTsar.Parent.Height.Should().Be(170);
-
-	    [Test]
-	    public void GetCurrentTsar_Parent_CheckWeight() =>
-	        currentTsar.Parent.Weight.Should().Be(60);
-
-	    [Test]
-	    public void GetCurrentTsar_Parent_ParentShouldBeNull() =>
-	        currentTsar.Parent.Parent.Should().BeNull();
-
+	    public void GetCurrentTsar_ShouldReturn_CorrectPersone()
+	    {
+	        Person currentTsar = TsarRegistry.GetCurrentTsar();
+            Person expectedTsar = new Person("Ivan IV The Terrible", 54, 170, 70,
+	            new Person("Vasili III of Russia", 28, 170, 60, null));
+            currentTsar.ShouldBeEquivalentTo(expectedTsar, options =>
+                options.Excluding(o => o.Id).Excluding(o=>o.Parent.Id));
+	    }
 
         [Test]
 		[Description("Альтернативное решение. Какие у него недостатки?")]
@@ -125,13 +79,9 @@ namespace HomeExercises
             Expected: True
             But was:  False
             
-            Такой тест не поймает ошибки в конструкторе, 
-            например если перепутать рост с весом.
-
             В тесте используется метод AreEqual, который содержит в себе достаточно много логики, 
             из-за чего его тоже надо тестить. 
-         */
-    }
+         */}
 
     public class TsarRegistry
 	{
@@ -140,8 +90,7 @@ namespace HomeExercises
 		    return new Person(
 		        "Ivan IV The Terrible", 54, 170, 70, 
 				new Person("Vasili III of Russia", 28, 170, 60, null));
-		}
-	}
+		}}
 
 	public class Person
 	{
