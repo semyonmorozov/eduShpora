@@ -44,7 +44,7 @@ namespace HomeExercises
             var expectedTsar = new Person("Ivan IV The Terrible", 54, 170, 70,
 	            new Person("Vasili III of Russia", 28, 170, 60, null));
             currentTsar.ShouldBeEquivalentTo(expectedTsar, options =>
-                options.Excluding(o => o.Id).Excluding(o=>o.Parent.Id));
+                options.Excluding(ctx => ctx.SelectedMemberInfo.Name == "Id"));
 	    }
 
         [Test]
